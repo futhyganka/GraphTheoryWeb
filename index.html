@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Demo Graph Theory</title>
+</head>
+<body>
+
+    <!-- 
+    - Heading
+    - Intro
+    - Content
+      - simular
+      - bfs
+      - dfs
+      - chu trình
+      - tính liên thông
+      - tarjan
+      - moore dijkstra
+      - topo
+      - Kruskal
+      - Prim
+    - Fooding
+    -->
+
+    <div id="main">
+
+        <div id="heading">
+            <ul class="nav">
+                <li><a href="#introo">Introduction</a></li>
+                <li><a href="#simulation">DFS</a></li>
+                <li><a href="#simulation">BFS</a></li>
+                <li><a href="#cycle">Cycles</a></li>
+                <li><a href="#cycle">Connectivity</a></li>
+                <li><a href="#cycle">Tarjan</a></li>
+                <li><a href="#path">Moore-Dijkstra</a></li>
+                <li><a href="#path">Topological-Sort</a></li>
+                <li><a href="#mst">Kruskal</a></li>
+                <li><a href="#mst">Prim</a></li>
+                <li><a href="#flow">Maximum-Flow</a></li>
+            </ul>
+        </div>
+
+        <box id="introo"></box>
+
+        <div id="intro">
+
+            <!-- <div class="title-intro">
+                <h1 class="text-heading">GraphAlgo</h1>
+                <h3 class="sub-text-heading">Project Graph Theory CT175</h3>
+            </div> -->
+            
+        </div>
+
+        <div id="content">
+
+            <div id="simulation">
+
+                <div class="row">
+
+                    <div class="row col-half col half-first">
+
+                        <div class="col col-half input-graph">
+
+                            <div class="mode-select row">
+                                <button class="directed-btn btn col-half active" id="directed-simulation">Directed</button>
+                                <button class="undirected-btn btn col-half" id="undirected-simulation">Undirected</button>
+                            </div>
+
+                            <input type="number" placeholder="Enter node number" class="nodes" id="nodes-simulation" min="0" max="100" step="1"><br>
+                            <textarea placeholder="Enter edges" class="edges" id="edges-simulation"></textarea>
+                        
+                        </div>
+
+                        <div class="col col-half btn-graph row">
+
+                            <div class="row">
+
+                                <div class="sub-btn-graph col-6 col">
+                                    <button class="btn" id="matrix-simulation">Matrix</button>
+                                    <button class="btn" id="bfs-simulation">Bfs</button>
+                                    <button class="btn" id="dfs-simulation">Dfs</button>
+                                </div>
+                                
+                                <div class="col-4 col input-start-end">
+                                    <p>Start </p>
+                                    <input type="number" class="start" id="start-simulation" min="0">
+                                    <p>End </p>
+                                    <input type="number" class="end" id="end-simulation" min="0">
+                                </div>
+
+                            </div>
+
+                            <div class="print-content" id="print-simulation"></div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col col-half canvas">
+                        <div id="my-graph-simulation"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="cycle">
+
+                <div class="row">
+
+                    <div class="row col-half col half-first">
+
+                        <div class="col col-half input-graph">
+
+                            <div class="mode-select row">
+                                <button class="directed-btn btn col-half active" id="directed-cycle">Directed</button>
+                                <button class="undirected-btn btn col-half" id="undirected-cycle">Undirected</button>
+                            </div>
+
+                            <input type="number" placeholder="Enter node number" class="nodes" id="nodes-cycle" min="0" max="100" step="1"><br>
+                            <textarea placeholder="Enter edges" class="edges" id="edges-cycle"></textarea>
+                        
+                        </div>
+
+                        <div class="col col-half btn-graph row">
+
+                            <div class="row">
+
+                                <div class="sub-btn-graph col-6 col">
+                                    <button class="btn" id="matrix-cycle">Matrix</button>
+                                    <button class="btn" id="check-cycle">Cycle</button>
+                                    <button class="btn" id="connect-cycle">Connectivity</button>
+                                    <button class="btn" id="tarjan-cycle">Tarjan</button>
+                                </div>
+                                
+                                <div class="col-4 col input-start-end">
+                                    <p>Start </p>
+                                    <input type="number" class="start" id="start-cycle" min="0">
+                                    <p>End </p>
+                                    <input type="number" class="end" id="end-cycle" min="0">
+                                </div>
+
+                            </div>
+
+                            <div class="print-content" id="print-cycle"></div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col col-half canvas">
+                        <div id="my-graph-cycle"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="path">
+
+                <div class="row">
+
+                    <div class="row col-half col half-first">
+
+                        <div class="col col-half input-graph">
+
+                            <div class="mode-select row">
+                                <button class="directed-btn btn col-half active" id="directed-path">Directed</button>
+                                <button class="undirected-btn btn col-half" id="undirected-path">Undirected</button>
+                            </div>
+
+                            <input type="number" placeholder="Enter node number" class="nodes" id="nodes-path" min="0" max="100" step="1"><br>
+                            <textarea placeholder="Enter edges" class="edges" id="edges-path"></textarea>
+                        
+                        </div>
+
+                        <div class="col col-half btn-graph row">
+
+                            <div class="row">
+
+                                <div class="sub-btn-graph col-6 col">
+                                    <button class="btn" id="matrix-path">Matrix</button>
+                                    <button class="btn" id="md-path">Moore dijkstra</button>
+                                    <button class="btn" id="topo-path">Topo</button>
+                                </div>
+                                
+                                <div class="col-4 col input-start-end">
+                                    <p>Start </p>
+                                    <input type="number" class="start" id="start-path" min="0">
+                                    <p>End </p>
+                                    <input type="number" class="end" id="end-path" min="0">
+                                </div>
+
+                            </div>
+
+                            <div class="print-content" id="print-path"></div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col col-half canvas">
+                        <div id="my-graph-path"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="mst">
+
+                <div class="row">
+
+                    <div class="row col-half col half-first">
+
+                        <div class="col col-half input-graph">
+
+                            <div class="mode-select row">
+                                <button class="directed-btn btn col-half active" id="directed-mst">Directed</button>
+                                <button class="undirected-btn btn col-half" id="undirected-mst">Undirected</button>
+                            </div>
+
+                            <input type="number" placeholder="Enter node number" class="nodes" id="nodes-mst" min="0" max="100" step="1"><br>
+                            <textarea placeholder="Enter edges" class="edges" id="edges-mst"></textarea>
+                        
+                        </div>
+
+                        <div class="col col-half btn-graph row">
+
+                            <div class="row">
+
+                                <div class="sub-btn-graph col-6 col">
+                                    <button class="btn" id="matrix-mst">Matrix</button>
+                                    <button class="btn" id="kruskal-mst">Kruskal</button>
+                                    <button class="btn" id="prim-mst">Prim</button>
+                                </div>
+                                
+                                <div class="col-4 col input-start-end">
+                                    <p>Start </p>
+                                    <input type="number" class="start" id="start-mst" min="0">
+                                    <p>End </p>
+                                    <input type="number" class="end" id="end-mst" min="0">
+                                </div>
+
+                            </div>
+
+                            <div class="print-content" id="print-mst"></div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col col-half canvas">
+                        <div id="my-graph-mst"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="flow">
+
+                <div class="row">
+
+                    <div class="row col-half col half-first">
+
+                        <div class="col col-half input-graph">
+
+                            <div class="mode-select row">
+                                <button class="directed-btn btn col-half active" id="directed-flow">Directed</button>
+                                <button class="undirected-btn btn col-half" id="undirected-flow">Undirected</button>
+                            </div>
+
+                            <input type="number" placeholder="Enter node number" class="nodes" id="nodes-flow" min="0" max="100" step="1"><br>
+                            <textarea placeholder="Enter edges" class="edges" id="edges-flow"></textarea>
+                        
+                        </div>
+
+                        <div class="col col-half btn-graph row">
+
+                            <div class="row">
+
+                                <div class="sub-btn-graph col-6 col">
+                                    <button class="btn" id="matrix-flow">Matrix</button>
+                                    <button class="btn" id="check-flow">Check flow</button>
+                                    <button class="btn" id="btn-flow">Maximum flow</button>
+                                </div>
+                                
+                                <div class="col-4 col input-start-end">
+                                    <p>Start </p>
+                                    <input type="number" class="start" id="start-flow" min="0">
+                                    <p>End </p>
+                                    <input type="number" class="end" id="end-flow" min="0">
+                                </div>
+
+                            </div>
+
+                            <div class="print-content" id="print-flow"></div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="col col-half canvas">
+                        <div id="my-graph-flow"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="./js/graph.js"></script>
+    <script src="./js/dfs_bfs.js"></script>
+    <script src="./js/cycle_connect_tarjan.js"></script>
+    <script src="./js/mooredijkstra_topo.js"></script>
+    <script src="./js/kruskal_prim.js"></script>
+    <script src="./js/maximum_flow.js"></script>
+    
+    
+    
+</body>
+</html>

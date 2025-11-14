@@ -1,0 +1,296 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, input, textarea {
+    scroll-behavior: smooth;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --main-color: #ffc0cb;
+    --sub-main-color: #fdf3f4;
+    --background: #fdf7f3;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear:both;
+}
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.col-half {
+    width: 50%;
+}
+
+.col-6 {
+    width: 60%;
+}
+
+.col-4 {
+    width: 40%;
+}
+
+/* Heading */
+
+#heading {
+    position: fixed;
+    height: 46px;
+    width: 100%;
+    background-color: var(--main-color);
+    top: 0;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+.nav {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.nav li {
+    display: inline-block;
+    text-align: center;
+    /* flex: 1; */
+    margin-left: 12px;
+}
+
+.nav li a {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--sub-main-color);
+    /* text-transform:uppercase; */
+    padding: 13px;
+    font-weight: 550;
+    font-size: 17px;
+}
+
+.nav li:hover a{
+    background-color: #00000010;
+}
+
+/* Intro */
+
+#introo{
+    height: 46px;
+    width: 100%;
+    display: block;
+}
+
+#intro {
+    /* border-top: 46px; */
+    height: calc(100vh - 46px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    background-image: url(../img/intro.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* content */
+
+#content {
+
+}
+
+#cycle,
+#mst,
+#path,
+#flow,
+#simulation{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-color: var(--background);
+    justify-content: center;
+}
+
+#cycle > div,
+#mst > div,
+#path > div,
+#flow > div,
+#simulation > div{
+    margin-top: 106px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    width: 80%;
+    height: 80%;
+    position: relative;
+}
+
+#cycle > div > .half-first,
+#mst > div > .half-first,
+#path > div > .half-first,
+#flow > div > .half-first,
+#simulation > div > .half-first{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.input-graph{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.btn-graph {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    
+}
+
+.mode-select {
+    display: flex;
+    justify-content: center;
+    /* gap: 10px; */
+    /* margin: 20px 0; */
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--main-color);
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 16px;
+    width: 150px;
+    margin: 20px 8px;
+    margin-bottom: 2px;
+}
+
+.btn:hover {
+    background: #ff93ac;
+}
+
+.mode-select button.active {
+    background: #ff4081;
+    color: white;
+    font-weight: bold;
+}
+
+input.nodes {
+    position: absolute;
+    top: 76px;
+    left: 8px;
+    right: 8px;
+    height: 2rem;
+    margin: 8px;
+    font-size: 16px;
+    padding: 5px 8px;
+}
+
+textarea.edges {
+    position: absolute;
+    top: calc(2rem + 102px);
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
+    margin: 8px;
+    font-size: 16px;
+    padding: 10px 8px;
+}
+
+.input-start-end {
+    padding: 8px;
+}
+
+.input-start-end p{
+    padding: 8px;
+    margin-top: 18px;
+}
+
+.input-start-end input {
+    height: 2rem;
+    width: 80px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.print-content{
+    position: absolute;
+    top: 200px;
+    bottom: 16px;
+    left: 8px;
+    right: 16px;
+    padding: 28px;
+    background-color: #fff;
+    line-height: 1.3;
+}
+
+#print-cycle {
+    top: 258px !important;
+}
+
+.canvas { 
+    position: absolute; 
+    right: 0;
+    height: calc(95% - 3px); 
+    /* display: flex;  */
+    background-color: #fff; 
+    border: 1px solid #000; 
+    margin-top: 16px; 
+}
+
+.canvas div { 
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
