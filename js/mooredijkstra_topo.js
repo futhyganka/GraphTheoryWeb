@@ -180,8 +180,8 @@ btnMatrixPath.onclick = function(e){
 btnMDPath.onclick = function(e){
 
     // Nếu đồ thị vô hướng thì bỏ qua
-    if (!isDirectedCycle) {
-        printPath.innerHTML = "Undirected graph!";
+    if (!graphPath.isDirected) {
+        printPath.innerHTML = "Undirected graph. The Moore-Dijkstra algorithm cannot be applied to the graph!";
         return;
     }
 
@@ -222,7 +222,7 @@ btnMDPath.onclick = function(e){
 btnTopoPath.onclick = function(e){
 
     // Nếu đồ thị vô hướng thì bỏ qua
-    if (!isDirectedCycle) {
+    if (!graphPath.isDirected) {
         printPath.innerHTML = "Undirected graph. Topological sorting cannot be applied to the graph!";
         return;
     }
@@ -236,5 +236,5 @@ btnTopoPath.onclick = function(e){
     // giải thuật
     
     const listTopo = topo(graphPath);
-    printPath.innerHTML = `Topological sorting:<br>${listTopo.join(" → ")}`;
+    printPath.innerHTML = `Topological order:<br>${listTopo.join(" → ")}`;
 }

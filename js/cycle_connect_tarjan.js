@@ -312,14 +312,15 @@ btnCycle.onclick = async function (e) {
 btnConnectCycle.onclick = function(e) {
 
     // Nếu đồ thị có hướng thì bỏ qua
-    if (isDirectedCycle) {
+    if (graphCycle.isDirected) {
         printCycle.innerHTML = 
             "Directed graph! <br>You can use Tarjan's algorithm.";
         return;
     }
 
+    const n = graphCycle.n;
     // Nếu chưa có node nào thì thôi
-    if (graphCycle.n === 0) {
+    if (n === 0) {
         printCycle.innerHTML = "Data not found!";
         return;
     }
@@ -333,7 +334,6 @@ btnConnectCycle.onclick = function(e) {
     }
 
     // duyệt qua bfs
-    const n = graphCycle.n;
     const visited = Array(n + 1).fill(-1);
     let connected = true;
     breadthFirstSearch(graphCycle, elementStartCycle, visited);
@@ -352,7 +352,7 @@ btnConnectCycle.onclick = function(e) {
 btnTarjanCycle.onclick = function(e){
     
     // Nếu đồ thị vô hướng thì bỏ qua
-    if (!isDirectedCycle) {
+    if (!graphCycle.isDirected) {
         printCycle.innerHTML = "Undirected graph!";
         return;
     }

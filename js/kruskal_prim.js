@@ -179,7 +179,7 @@ btnMatrixMST.onclick = function(e){
 btnKruskalMST.onclick = function (e) {
 
     // Nếu đồ thị có hướng thì bỏ qua
-    if (isDirectedMST) {
+    if (graphMST.isDirected) {
         printMST.innerHTML = 
             "Directed graph!";
         return;
@@ -244,7 +244,7 @@ btnKruskalMST.onclick = function (e) {
 
 btnPrimMST.onclick = function (e) {
     // Nếu đồ thị có hướng thì bỏ qua
-    if (isDirectedMST) {
+    if (graphMST.isDirected) {
         printMST.innerHTML = 
             "Directed graph!";
         return;
